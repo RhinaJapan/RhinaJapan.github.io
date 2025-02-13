@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Buttons with Sliding Colors</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .box-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-left: 20px;
+        }
+        .box {
+            width: 100%;
+            height: 50px;
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button id="monday" style="background-color: red;">Monday</button>
+            <button id="tuesday" style="background-color: orange;">Tuesday</button>
+            <button id="wednesday" style="background-color: yellow;">Wednesday</button>
+            <button id="thursday" style="background-color: green;">Thursday</button>
+            <button id="friday" style="background-color: blue;">Friday</button>
+            <button id="saturday" style="background-color: indigo;">Saturday</button>
+            <button id="sunday" style="background-color: violet;">Sunday</button>
+        </div>
+        <div class="box-container">
+            <div id="colorBox" class="box"></div>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll("button");
+        const colorBox = document.getElementById("colorBox");
+        const colors = {
+            monday: "red",
+            tuesday: "orange",
+            wednesday: "yellow",
+            thursday: "green",
+            friday: "blue",
+            saturday: "indigo",
+            sunday: "violet"
+        };
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                colorBox.style.backgroundColor = colors[button.id];
+                colorBox.style.display = "block";
+                colorBox.style.top = button.offsetTop + "px";
+                colorBox.style.transition = "top 0.5s ease";
+            });
+        });
+    </script>
+</body>
+</html>
