@@ -3,195 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threads</title>
-
+    <title>Restaurant Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.res {
-    display: flex;
-    align-items: center;
-}
-
-.row {
-    padding: 0 15px;
-    min-height: 100vh;
-    justify-content: center;
-    background: rgb(134,58,62);
-    background: linear-gradient(90deg, rgba(134,58,62,1) 0%, rgba(203,75,75,1) 35%, rgba(255,180,175,1) 100%);
-}
-
-.fb-form {
-    justify-content: space-between;
-    max-width: 1000px;
-    width: 100%;
-}
-
-.fb-form .card {
-    margin-bottom: 90px;
-}
-
-.fb-form h1 {
-    color: #65000B;
-    font-size: 4rem;
-    margin-bottom: 10px;
-}
-
-.fb-form p {
-    font-size: 1.75rem;
-    white-space: nowrap;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-form input {
-    height: 55px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    padding: 0 14px;
-}
-
-form input:focus {
-    outline: none;
-    border-color: #1877f2;
-}
-
-::placeholder {
-    color: #777;
-    font-size: 1.063rem;
-}
-
-.fb-submit {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-}
-
-.fb-submit .login {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: #C60C30;
-    padding: 15px 0;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.fb-submit .login:hover {
-    background: #65000B;
-}
-
-form a {
-    text-decoration: none;
-}
-
-.fb-submit .forgot {
-    color: black;
-    font-size: 0.875rem;
-}
-
-.fb-submit .forgot:hover {
-    text-decoration: underline;
-}
-
-hr {
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.button {
-    margin-top: 25px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.button a {
-    padding: 15px 20px;
-    background: #960018;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.063rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.button a:hover {
-    background: #65000B;
-    
-}
-
-@media (max-width: 900px) {
-    .fb-form {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .fb-form .card {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 460px) {
-    .fb-form h1 {
-        font-size: 3.5rem;
-    }
-
-    .fb-form p {
-        font-size: 1.3rem;
-    }
-
-    form {
-        padding: 15px;
-    }
-}
+        body {
+            background-image: url('C:/Users/Rhina/Documents/GitHub/RhinaJapan.github.io/finalTSA/restaurantbg.jpg');
+            background-size: cover;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .restaurant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
-    <div class="row res">
-        <div class="fb-form res">
-            <div class="card">
-                <img src="images/T-Photoroom.png" alt="Italian Trulli">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Restaurant Guide</h1>
+        <div class="row">
+            <!-- Restaurant Cards -->
+            <div class="col-md-3">
+                <div class="card restaurant-card">
+                    <img src="C:\Users\Rhina\Documents\GitHub\RhinaJapan.github.io\finalTSA\Cabalen.jpg" alt="Cabalen" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cabalen</h5>
+                        <button class="btn btn-primary" onclick="showDetails(0)">More</button>
+                    </div>
+                </div>
             </div>
-            <form action="#">
-                <input type="email" placeholder="Email or phone number"
-                    required>
-                <input type="password" placeholder="Password" required>
-                <div class="fb-submit">
-                    <button type="submit" class="login">Login</button>
-                    <a href="#" class="forgot">Forgot password?</a>
+            <div class="col-md-3">
+                <div class="card restaurant-card">
+                    <img src="C:\Users\Rhina\Documents\GitHub\RhinaJapan.github.io\finalTSA\mesa.jpg" alt="Mesa" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Mesa</h5>
+                        <button class="btn btn-primary" onclick="showDetails(1)">More</button>
+                    </div>
                 </div>
-                <hr>
-                <div class="button">
-                    <a href="#">Create new account</a>
+            </div>
+            <div class="col-md-3">
+                <div class="card restaurant-card">
+                    <img src="C:\Users\Rhina\Documents\GitHub\RhinaJapan.github.io\finalTSA\vikings.png" alt="Vikings" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Vikings</h5>
+                        <button class="btn btn-primary" onclick="showDetails(2)">More</button>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <div class="col-md-3">
+                <div class="card restaurant-card">
+                    <img src="C:\Users\Rhina\Documents\GitHub\RhinaJapan.github.io\finalTSA\PDynasty.jpg" alt="Paradise Dynasty" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Paradise Dynasty</h5>
+                        <button class="btn btn-primary" onclick="showDetails(3)">More</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="restaurantModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const restaurants = [
+            { name: "Cabalen", address: "Eastwood City Walk, Quezon City", hours: "10:00AM - 8:00PM", price: "600 PHP per person", phone: "09957234855", about: "Cabalen introduced the best way to enjoy Kapampangan cuisine through an array of freshly cooked, beautifully presented food in a buffet line. At present, the Cabalen boasts of 41 branches located strategically around Metro Manila, North and South Luzon, Visayas and Mindanao. " },
+            { name: "Mesa", address: "SM East City Ortigas, Pasig", hours: "10AM - 8:00PM", price: "1000 PHP for two", phone: "", about: "The MESA can be summed up as innovative yet traditional cuisine, genuine Filipino hospitality, and an exceptional dining experience highlighted by native accents all within the realm of affordable luxury." },
+            { name: "Vikings", address: "SM Megamall, Mandaluyong", hours: "10:00AM - 8:00PM", price: "1000 PHP per person", phone: "", about: "Vikings Philippines is a luxury buffet restaurant chain known for its extensive selection of international and local cuisines, offering a high-end dining experience at affordable prices." },
+            { name: "Paradise Dynasty", address: "Podium, Mandaluyong", hours: "10:00AM - 8:00PM", price: "700 PHP for two", phone: "", about: "Paradise Dynasty is a Singaporean restaurant concept known for its innovative take on Northern and Southern Chinese cuisine, particularly its signature xiao long bao (soup dumplings) in various flavors, and aims to provide a luxurious and contemporary dining experience." }
+        ];
+
+        function showDetails(index) {
+            const restaurant = restaurants[index];
+            document.getElementById("modalTitle").innerText = restaurant.name;
+            document.getElementById("modalBody").innerHTML = `
+                <p><strong>Address:</strong> ${restaurant.address}</p>
+                <p><strong>Opening Hours:</strong> ${restaurant.hours}</p>
+                <p><strong>Price Range:</strong> ${restaurant.price}</p>
+                <p><strong>Phone Number:</strong> ${restaurant.phone || "N/A"}</p>
+                <p>${restaurant.about}</p>
+            `;
+            new bootstrap.Modal(document.getElementById("restaurantModal")).show();
+        }
+    </script>
 </body>
 </html>
